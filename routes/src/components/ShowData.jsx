@@ -7,7 +7,7 @@ import { BiImageAdd, BiLink } from "react-icons/bi";
 function ShowData() {
   let [stuData, setStuData] = useState([]);
   let [search, setSearch] = useState(null);
-  let [perPage, setPerPage] = useState(5); // Increased for better initial view
+  let [perPage, setPerPage] = useState(5);
   let [currentPage, setCurrentPage] = useState(1);
   let [pageNo, setPageNo] = useState([]);
   let [sortBy, setSortBy] = useState(null);
