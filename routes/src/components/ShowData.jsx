@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { FaSearch, FaSortAlphaDown, FaSortAlphaUp, FaTrashAlt, FaEdit } from "react-icons/fa";
-import { BiImageAdd, BiLink } from "react-icons/bi";
+import {
+  FaSearch,
+  FaSortAlphaDown,
+  FaSortAlphaUp,
+  FaTrashAlt,
+  FaEdit,
+} from "react-icons/fa";
 
 function ShowData() {
   let [stuData, setStuData] = useState([]);
@@ -39,8 +44,11 @@ function ShowData() {
       return newData;
     });
 
-    const allStudentsAfterDelete = JSON.parse(localStorage.getItem("students")) || [];
-    const totalPagesAfterDelete = Math.ceil(allStudentsAfterDelete.length / perPage);
+    const allStudentsAfterDelete =
+      JSON.parse(localStorage.getItem("students")) || [];
+    const totalPagesAfterDelete = Math.ceil(
+      allStudentsAfterDelete.length / perPage
+    );
     setPageNo(Array.from({ length: totalPagesAfterDelete }, (_, i) => i + 1));
 
     if (stuData.length === 1 && currentPage > 1) {
@@ -67,7 +75,9 @@ function ShowData() {
 
   const filteredData = stuData.filter(
     (v) =>
-      !search || v.name.toLowerCase().includes(search.toLowerCase()) || v.email.toLowerCase().includes(search.toLowerCase())
+      !search ||
+      v.name.toLowerCase().includes(search.toLowerCase()) ||
+      v.email.toLowerCase().includes(search.toLowerCase())
   );
 
   const startIndex = (currentPage - 1) * perPage;
@@ -78,12 +88,20 @@ function ShowData() {
       <div className="container">
         <div className="d-flex justify-content-between align-items-center mb-4">
           <div>
-            <h2 className="h3 fw-bold text-primary mb-0">
+            <h2 className="h3 fw-bold text-black mb-0">
               <i className="bi bi-table me-2"></i> Student Data
             </h2>
             <p className="text-muted">View and manage student records.</p>
           </div>
-          <Link to="/" className="btn btn-primary btn-sm">
+          <Link
+            to="/"
+            className="btn btn-primary btn-sm"
+            style={{
+              backgroundColor: "black",
+              color: "white",
+              borderColor: "black",
+            }}
+          >
             <i className="bi bi-plus-lg me-1"></i> Add New
           </Link>
         </div>
@@ -135,7 +153,9 @@ function ShowData() {
                 <th className="p-3">Name</th>
                 <th className="p-3">Email</th>
                 <th className="p-3 d-none d-md-table-cell">Password</th>
-                <th className="p-3 text-center d-none d-md-table-cell">Gender</th>
+                <th className="p-3 text-center d-none d-md-table-cell">
+                  Gender
+                </th>
                 <th className="p-3">Hobby</th>
                 <th className="p-3 d-none d-lg-table-cell">City</th>
                 <th className="p-3 text-center">Online Image</th>
@@ -151,7 +171,9 @@ function ShowData() {
                     <td className="p-3">{v.name}</td>
                     <td className="p-3">{v.email}</td>
                     <td className="p-3 d-none d-md-table-cell">{v.password}</td>
-                    <td className="p-3 text-center d-none d-md-table-cell">{v.gender}</td>
+                    <td className="p-3 text-center d-none d-md-table-cell">
+                      {v.gender}
+                    </td>
                     <td className="p-3">{v.hobby.join(", ")}</td>
                     <td className="p-3 d-none d-lg-table-cell">{v.city}</td>
                     <td className="p-3 text-center">
@@ -159,7 +181,11 @@ function ShowData() {
                         <img
                           src={v.image}
                           alt="Online"
-                          style={{ height: "50px", borderRadius: "5px", boxShadow: "0 2px 4px rgba(0,0,0,.1)" }}
+                          style={{
+                            height: "50px",
+                            borderRadius: "5px",
+                            boxShadow: "0 2px 4px rgba(0,0,0,.1)",
+                          }}
                         />
                       )}
                       {!v.image && <span className="text-muted">-</span>}
@@ -169,7 +195,11 @@ function ShowData() {
                         <img
                           src={v.newImage}
                           alt="Upload"
-                          style={{ height: "50px", borderRadius: "5px", boxShadow: "0 2px 4px rgba(0,0,0,.1)" }}
+                          style={{
+                            height: "50px",
+                            borderRadius: "5px",
+                            boxShadow: "0 2px 4px rgba(0,0,0,.1)",
+                          }}
                         />
                       )}
                       {!v.newImage && <span className="text-muted">-</span>}
@@ -208,7 +238,9 @@ function ShowData() {
         {pageNo.length > 1 && (
           <nav className="mt-4 d-flex justify-content-center">
             <ul className="pagination">
-              <li className={`page-item ${currentPage === 1 ? "disabled" : ""}`}>
+              <li
+                className={`page-item ${currentPage === 1 ? "disabled" : ""}`}
+              >
                 <button
                   className="page-link"
                   onClick={() => setCurrentPage((prev) => prev - 1)}
@@ -219,7 +251,9 @@ function ShowData() {
               {pageNo.map((page) => (
                 <li
                   key={page}
-                  className={`page-item ${currentPage === page ? "active" : ""}`}
+                  className={`page-item ${
+                    currentPage === page ? "active" : ""
+                  }`}
                 >
                   <button
                     className="page-link"

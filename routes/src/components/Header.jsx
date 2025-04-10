@@ -5,12 +5,13 @@ function Header() {
   return (
     <header
       style={{
-        background: "linear-gradient(to right, #f0f8ff, #e6f7ff)",
+        // background: "linear-gradient(to right, #f0f8ff, #e6f7ff)",
         padding: "20px 0",
         textAlign: "center",
         boxShadow: "0 4px 12px rgba(0,0,0,0.06)",
         fontFamily: "'Segoe UI', sans-serif",
         marginBottom: "0px",
+        
       }}
     >
       <div style={{ display: "flex", justifyContent: "center", gap: "20px" }}>
@@ -18,7 +19,7 @@ function Header() {
           to="/"
           style={{
             backgroundColor: "#ffffff",
-            color: "#004085",
+            color: "black",
             textDecoration: "none",
             padding: "10px 20px",
             fontWeight: "600",
@@ -27,7 +28,7 @@ function Header() {
             transition: "all 0.3s ease",
           }}
           onMouseEnter={(e) => {
-            e.target.style.backgroundColor = "#e0f0ff";
+            e.target.style.backgroundColor = "grey";
           }}
           onMouseLeave={(e) => {
             e.target.style.backgroundColor = "#ffffff";
@@ -39,7 +40,7 @@ function Header() {
           to="/show"
           style={{
             backgroundColor: "#ffffff",
-            color: "#004085",
+            color: "black",
             textDecoration: "none",
             padding: "10px 20px",
             fontWeight: "600",
@@ -48,7 +49,7 @@ function Header() {
             transition: "all 0.3s ease",
           }}
           onMouseEnter={(e) => {
-            e.target.style.backgroundColor = "#e0f0ff";
+            e.target.style.backgroundColor = "grey";
           }}
           onMouseLeave={(e) => {
             e.target.style.backgroundColor = "#ffffff";

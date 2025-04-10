@@ -190,7 +190,6 @@ function Update() {
               )}
             </div>
 
-            {/* Upload Image (fake field for UI consistency) */}
             <div className="col-12">
               <label className="form-label">Upload Image (optional)</label>
               <input
